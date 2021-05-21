@@ -3,7 +3,6 @@
 
 // ** The $this keyword
 // ** indicates that we use the class's own methods and properties, and allows us to have access to them within the class's scope.
-
 // Create and declare Class
 class Car {
     // add properties
@@ -50,6 +49,31 @@ class Car {
         return __CLASS__ . " The car model is {$this -> model}";
     }
 }
+
+// ** Declare an inheritance aka child class
+//The child class can use the code it inherited from the parent class, 
+class SportsCar extends Car {
+    private $style = 'fast and furious';
+ 
+    public function driveItWithStyle()
+    {
+        return 'Drive a '  . $this -> getModel() . ' <i>' . $this -> style . '</i>';
+        // return 'Drive a '  . $this -> getModel() . ' <i>' . $this -> style . '</i>';
+    }
+
+    // override parent Class's method
+    public function hello() 
+    {
+        return "Brrrrr... <i>" . $this -> comp . "</i>" . ", and I am " . "<i>" . $this -> style . "</i>";
+    }
+
+} 
+
+$lambo = new SportsCar('LB-007');
+echo $lambo -> getModel();
+echo '<br>';
+echo $lambo -> hello();
+echo '<br>';
 
 // Creat instance objects from a class
 $bmw = new Car();
