@@ -1,53 +1,83 @@
-<?php
-class Book {
-    public $title;
-    public $year;
-    public static $count = 0;
+<?php 
+// ** Classes, objects, methods and properties
 
-    public function __construct($title = '', $year = '1908')
+// ** The $this keyword
+// ** indicates that we use the class's own methods and properties, and allows us to have access to them within the class's scope.
+
+// Create and declare Class
+class Car {
+    // add properties
+    public $comp;
+    public $color = 'beige';
+    public $hasSunRoof = true;
+    public $tank;
+    private $model = 'N/A';
+
+    public function __construct($model = null)
     {
-        self::increment();
-        $this->title = $title;
-        $this->year = $year;
+        // Only if the model value is passed it will be assigned
+        if($model) {
+            $this -> model = $model;   
+        }
+    }
+    
+    // add methods
+    public function hello() 
+    {
+        return "Beep I am a <i>" . $this -> comp . "</i>" . ", and I am " . "<i>" . $this -> color . "</i>";
     }
 
-    public function getHeading () {
-        return $this->title . ' - ' . $this->year;
+    // Add gallons of fuel to the tank when we fill it.
+    public function fill($float) 
+    {
+        $this -> tank += $float;
+        
+        return $this;
+    }
+    
+    // Substract gallons of fuel from the tank as we ride the car.
+    public function ride($float) 
+    {
+        $miles = $float;
+        $gallons = $miles / 50;
+        $this -> tank -= $gallons;
+        
+        return $this;
     }
 
-    public static function increment () {
-        self::$count++;
+    public function getModel()
+    {
+        return __CLASS__ . " The car model is {$this -> model}";
     }
 }
 
-// OOP Inheritance
-class TravelBook extends Book {
-    public $place = '';
-  
-    public function getHeading () {
-        return $this->title . ' - ' . $this->year . ' - ' . $this->place;
-    }
-}
+// Creat instance objects from a class
+$bmw = new Car();
+$mercedes = new Car();
 
+// Set the values
+$bmw -> comp = "BMW";
+$bmw -> color = "blue";
+$mercedes -> comp = "Mercedes Benz";
+$mercedes -> color = "grey";
 
-$book = new Book();
-$book->title = 'new title 1';
-var_dump($book->getHeading());
-
+echo $bmw -> color;
+echo '<br>';
+echo $mercedes -> comp;
 echo '<br>';
 
-$travel1 = new TravelBook('new title 2',);
-// $travel1->title = 'new title 2';
-// $travel1->year = '2028';
-$travel1->place = 'Victoria';
-var_dump($travel1->getHeading());
+// Use the mothods to get a beep
+echo $bmw -> hello();
+echo '<br>';
+echo $mercedes -> hello();
 
+// Use the chaining methodes and properties
+$volvo = new Car();
+$tank = $volvo -> fill(10) -> ride(40) -> tank;
+echo "The number of gallons left in the tank: " . $tank . " gal.";
 echo '<br>';
 
-$travel2 = new TravelBook('new title 3',500);
-$travel2->place = 'Nanaimo';
-var_dump($travel2->getHeading());
-
-
+// Access private property using Setter and Getter
+$audi = new Car('Hello-192');
+echo $audi -> getModel();
 echo '<br>';
-echo Book::$count;
