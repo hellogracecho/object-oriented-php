@@ -26,7 +26,7 @@ In order to love PHP, I really need to dive deepand learn the basic foundation o
 | `protected` | ✅    | ✅          | 🚫           |
 | `private`   | ✅    | 🚫          | 🚫           |
 
-- How to access a private property?: create public methods of Setters & Getters
+- How to access a `private` property?: create public methods of Setters & Getters
 - Why do we need access modifiers?: to limit the modifications that code from outside the classes can do to the classes' methods and properties
 - Magic methods and constants unveiled
   - magic method: `__construct()`
@@ -35,3 +35,7 @@ In order to love PHP, I really need to dive deepand learn the basic foundation o
 - Inheritance (child) in object-oriented PHP `extends`: Inheritance allows us to write the code only once in the parent, and then use the code in both the parent and the child classes.
   - `protected`: When we declare a property or a method as protected, we can approach it from both the parent and the child classes.
   - to prevent the child class from overriding the parent's method: use _`final`_ `pubic function Hello()...`
+- `Abstract` classes and methods: To commit the child classes to certain methods: We use abstract classes and methods when we need to commit the child classes to certain methods that they inherit from the parent class but we cannot commit about the code that should be written inside the methods.
+  - ❗️ once we have an abstract method in a class, the class must also be abstract.
+  - ❗️ the child classes that inherit from abstract classes must add bodies to the abstract methods.
+- `Interfaces` - the next level of abstraction
