@@ -35,7 +35,19 @@ In order to love PHP, I really need to dive deepand learn the basic foundation o
 - Inheritance (child) in object-oriented PHP `extends`: Inheritance allows us to write the code only once in the parent, and then use the code in both the parent and the child classes.
   - `protected`: When we declare a property or a method as protected, we can approach it from both the parent and the child classes.
   - to prevent the child class from overriding the parent's method: use _`final`_ `pubic function Hello()...`
+
+#
+
 - `Abstract` classes and methods: To commit the child classes to certain methods: We use abstract classes and methods when we need to commit the child classes to certain methods that they inherit from the parent class but we cannot commit about the code that should be written inside the methods.
   - ❗️ once we have an abstract method in a class, the class must also be abstract.
   - ❗️ the child classes that inherit from abstract classes must add bodies to the abstract methods.
-- `Interfaces` - the next level of abstraction
+- `Interfaces` - the next level of abstraction: An interface commits its child classes to abstract methods that they should implement.
+  - The classes that implement the interfaces **must** define all the methods that they inherit from the interfaces, including all the parameters.
+- What are the difference between `abstract` classes and `interfaces`?
+
+|                   | `interface`                                        | `abstract`                                                           |
+| ----------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
+| the code          | abstract methods / constants                       | abstract methods / constants / concrete methods / concrete variables |
+| access modifiers  | public                                             | public / protected                                                   |
+| number of parents | The same class can implement more than 1 interface | The child class can inherit only from 1 abstract class               |
+|                   |
