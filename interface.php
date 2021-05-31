@@ -53,7 +53,7 @@ echo '<hr>';
 echo '<br>';
 
 
-// Practise
+// Practice
 class User {
     protected $username;
     

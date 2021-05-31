@@ -50,7 +50,7 @@ echo '<hr>';
 echo '<br>';
 
 
-// Practise
+// Practice
 abstract class User {
     protected $username;
     
